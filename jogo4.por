@@ -16,7 +16,7 @@ programa {
     atributos()
 
 
-    //1 inimigo inicio
+    //inicio do codigo do primeiro inimigo
 
     escreva("\nA caminho do castelo, voce encontra um homem leopardo pedindo gentilmente para que o entregue todos os seus pertences.\n\n---O QUE FAZER?---\n[1] Atacar [2] Ameaçar [3] Hipnotisar [4] Dar seu dinheiro\n")
     leia(ESCOLHA)
@@ -25,13 +25,14 @@ programa {
           escreva("\nRESPOSTA INCORRETA, TENTE NOVAMENTE\n\n---O QUE FAZER? [1] Atacar [2] Ameaçar [3] Hipnotisar [4] Dar seu dinheiro---\n")
           leia(ESCOLHA)}
 
-
+//[4] dar dinheiro
     se(ESCOLHA == 4){
       DINHEIRO -= 100
 
       escreva("\nEntregaste tudo ao sujeito e seguiste com sua jornada.\n")
     }
 
+         //[3] hipnotisar
           se(ESCOLHA == 3){
             se(MAGIA >= 2){
               escreva("\nVOCE HIPNOTISOU O LADRAO E SEGUIU ATE O CASTELO.\n\n")
@@ -56,6 +57,7 @@ programa {
             }
           }
 
+         //[2] ameaçar
           se(ESCOLHA == 2){
                 inteiro ameaca = u.sorteia(1,2)
 
@@ -67,6 +69,7 @@ programa {
                 }
               }
 
+                     [1] atacar
                     se(ESCOLHA == 1){
             vida_inimigo = 10
             dano_inimigo = 2
