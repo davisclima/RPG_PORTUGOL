@@ -12,7 +12,7 @@ programa
   {
     inteiro vida_inimigo,dano_inimigo
 
-    //escreva introduçao
+    escreva("===================================================\n     BEM VINDO A AARD, O REINO DOS AFLITOS\n===================================================\n\nVoce foi enviado a um castelo para caçar monstros\n\n")
 
     //definir os atributos
     escreva("---Escolha sua classe---\n[1] bruxo [2] feiticeiro(a) [3] guerreiro(a)\n")
