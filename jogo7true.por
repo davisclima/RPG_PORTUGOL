@@ -168,8 +168,8 @@ programa {
 
               escreva_lento("Depois do encontro  com o forasteiro, voce seguiu em direçao a entrada do castelo e ali viu uma loja.\n\n",4)
               escreva_lento("Chegando na loja o vendedor disse:\n\n-COMERCIANTE: Ola viajante, gostaria de comprar algo util para sua misssao?\n\nO seu acervo era o seguinte:",5)
-              escreva_lento("\n\n1-ESPADA 60$            2-CAJADO 60$             3-MACHADO DE GUERRA 60$\n",2)
-              escreva_lento("4-ESCUDO 60$             5-POÇAO DA LEBRE 40$             6-POÇAO DA SAUDE 40$",2)
+              escreva_lento("\n\n1-ESPADA 60$            2-CAJADO 60$             3-ESCUDO 60$\n",2)
+              escreva_lento("4-MACHADO DE GUERRA 60$             5-POÇAO DA LEBRE 40$             6-POÇAO DA SAUDE 40$",2)
 
               enquanto(DINHEIRO >= 40){
               	escreva_lento("\nAlgo do acervo te interessa? [1]Sim [2]Nao\n",20)
@@ -178,6 +178,9 @@ programa {
               		escreva("\n\nINFORME CORRETAMENTE A RESPOSTA\n")
               		leia(ESCOLHA)
               		}
+              		se (ESCOLHA == 2){
+              			pare
+              			}
               	 enquanto(DINHEIRO >= 40){
               	 	se(DINHEIRO == 0){
               	 		pare
@@ -198,13 +201,11 @@ programa {
               			senao se(DINHEIRO >= 60){
               				escreva_lento("Sobrou dinheiro para uma arma:\n",20)
               			}
-              			
-              			
-              	 		
-             	 	}
-
-              
+	
+             	 	}      
   			}
+  		escreva_lento("\nSem dinheiro para compras, voce finalmente entrou no castelo;\n",20)
+		status()        			
   
 		}
 	}
@@ -417,17 +418,17 @@ funcao vazio status(){
                    escreva_lento("         ARMA: ",10)
                    escreva_lento(ARMA_STR,10)
                    escreva_lento("\n\nVIDA: ",10)
-                   escreva_lento("HP",10)
+                   escreva(HP)
                    escreva_lento("         DANO(FISICO): ",10)
-                   escreva_lento("DANO",10)
+                   escreva(DANO)
                    escreva_lento("\nMAGIA: ",10)
-                   escreva_lento("MAGIA",10)
+                   escreva(MAGIA)
                    escreva_lento("         DINHEIRO: ",10)
-                   escreva_lento("DINHEIRO",10)
+                   escreva(DINHEIRO)
                    escreva_lento("\nDEFESA: ",10)
-                   escreva_lento("DEFESA",10)
+                   escreva(DEFESA)
                    escreva_lento("         ESQUIVA: ",10)
-                   escreva_lento("ESQUIVA\n\n",10)
+                   escreva(ESQUIVA,"\n\n")
                     
                   					}
 
