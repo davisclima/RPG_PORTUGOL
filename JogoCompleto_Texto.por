@@ -11,7 +11,16 @@ programa {
   funcao inicio() {
     inteiro vida_inimigo,dano_inimigo
 
-    //escreva introduçao
+      escreva("=============================================\n          ")
+            						escreva_lento("BEM VINDO (A) AO REINO AARD\n",0)
+            						escreva("=============================================\n\n")
+
+	escreva("	  █▄██▄█\n")
+	escreva(" █▄█▄█▄█▄█▐█┼██▌█▄█▄█▄█▄█\n")
+     escreva(" ███┼█████▐████▌█████┼███\n")
+     escreva(" █████████▐████▌█████████\n\n")
+            						
+            						escreva("Voce foi designado(a) para caçar um vampiro chamado Jailson\n\n")
 
     //definir os atributos
     escreva_lento("---Escolha sua classe---\n[1] bruxo [2] feiticeiro(a) [3] guerreiro(a)\n",01)
