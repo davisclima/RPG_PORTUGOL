@@ -460,11 +460,11 @@ programa {
                    						se(gelo < 5){
 
                   						//ataque de gelo tem 20% de chance de paralisar
-                  						gelo = u.sorteia(MAGIA,15)
+                  						gelo = u.sorteia(MAGIA,10)
                   								  
                   								  }
                   								  
-                  							se(gelo == 5){
+                  							se(gelo == 10){
                   								
                     						PARALISADO = verdadeiro
                     						
