@@ -14,19 +14,19 @@ programa {
     //escreva introduçao
 
     //definir os atributos
-    escreva_lento("---Escolha sua classe---\n[1] bruxo [2] feiticeiro(a) [3] guerreiro(a)\n",40)
+    escreva_lento("---Escolha sua classe---\n[1] bruxo [2] feiticeiro(a) [3] guerreiro(a)\n",01)
     atributos()
 
 
     //inicio do codigo do primeiro inimigo
 
 	
-    escreva_lento("\nA caminho do castelo, voce encontra um homem leopardo pedindo gentilmente para que o entregue todos os seus pertences.",30)
+    escreva_lento("\nA caminho do castelo, voce encontra um homem leopardo pedindo gentilmente para que o entregue todos os seus pertences.",3)
     escreva_lento("\n\n---O QUE FAZER?---\n\n[1] Atacar [2] Ameaçar [3] Hipnotisar [4] Dar seu dinheiro\n",20)
     leia(ESCOLHA)
 
       enquanto(ESCOLHA > 4 ou ESCOLHA < 1){
-          escreva_lento("\nRESPOSTA INCORRETA, TENTE NOVAMENTE\n\n---O QUE FAZER? [1] Atacar [2] Ameaçar [3] Hipnotisar [4] Dar seu dinheiro---\n",20)
+          escreva_lento("\nRESPOSTA INCORRETA, TENTE NOVAMENTE\n\n---O QUE FAZER? [1] Atacar [2] Ameaçar [3] Hipnotisar [4] Dar seu dinheiro---\n",2)
           leia(ESCOLHA)}
 
 	//[4] dar dinheiro
@@ -44,7 +44,7 @@ programa {
           	
             se(MAGIA >= 2){
             	
-              escreva_lento("\nVOCE HIPNOTISOU O LADRAO E SEGUIU ATE O CASTELO.\n\n",40)
+              escreva_lento("\nVOCE HIPNOTISOU O LADRAO E SEGUIU ATE O CASTELO.\n\n",4)
             }
             
             	senao{
@@ -157,26 +157,57 @@ programa {
             						escreva("===================================")
             						}
             }
+            
 			//1 inimigo fim
 
   	se(DERROTA == falso)
   	{
               status()
 
-              escreva_lento("Depois do encontro  com o forasteiro, voce seguiu em direçao a entrada do castelo e ali viu uma loja.\n\n",40)
-              escreva_lento("Chegando na loja o vendedor disse:\n\n-COMERCIANTE: Ola viajante, gostaria de comprar algo util para sua misssao?\n\nO seu acervo era o seguinte:",50)
-              escreva_lento("\n\n1-ESPADA             2-CAJADO              3-MACHADO DE GUERRA\n",20)
-              escreva_lento("4-ESCUDO              5-POÇAO DA LEBRE              6-POÇAO DA SAUDE",20)
-              escreva("")
+			//LOJA INICIO
+
+              escreva_lento("Depois do encontro  com o forasteiro, voce seguiu em direçao a entrada do castelo e ali viu uma loja.\n\n",4)
+              escreva_lento("Chegando na loja o vendedor disse:\n\n-COMERCIANTE: Ola viajante, gostaria de comprar algo util para sua misssao?\n\nO seu acervo era o seguinte:",5)
+              escreva_lento("\n\n1-ESPADA 60$            2-CAJADO 60$             3-MACHADO DE GUERRA 60$\n",2)
+              escreva_lento("4-ESCUDO 60$             5-POÇAO DA LEBRE 40$             6-POÇAO DA SAUDE 40$",2)
+
+              enquanto(DINHEIRO >= 40){
+              	escreva_lento("\nAlgo do acervo te interessa? [1]Sim [2]Nao\n",20)
+              	leia(ESCOLHA)
+              	enquanto(ESCOLHA >2 ou ESCOLHA<1){
+              		escreva("\n\nINFORME CORRETAMENTE A RESPOSTA\n")
+              		leia(ESCOLHA)
+              		}
+              	 enquanto(DINHEIRO >= 40){
+              	 	se(DINHEIRO == 0){
+              	 		pare
+              	 		}
+              	 		
+              			escreva_lento("\nSelecione o item de acordo com a numeraçao:\n",20)
+					leia(ARMA)
+					enquanto(ARMA>6 ou ARMA<1){
+						escreva("INFORME O NUMERO CORRETAMENTE\n")
+						leia(ARMA)
+						}
+					armas()
+              			se(DINHEIRO >= 40 e DINHEIRO < 60){
+              			
+              			escreva_lento("Sobrou dinheiro para uma poçao:",20)
+              			
+              			}
+              			senao se(DINHEIRO >= 60){
+              				escreva_lento("Sobrou dinheiro para uma arma:\n",20)
+              			}
+              			
+              			
+              	 		
+             	 	}
 
               
-  	}
+  			}
   
-
-  }
-
-
-
+		}
+	}
 
 
 
@@ -412,6 +443,7 @@ funcao vazio armas(){
             DANO += 5
 
             ARMA_STR = "ESPADA"
+            DINHEIRO-=60
             pare
 
             //cajado
@@ -420,6 +452,7 @@ funcao vazio armas(){
             MAGIA += 3
 
             ARMA_STR = "CAJADO"
+            DINHEIRO-=60
             pare
 
             //escudo
@@ -427,6 +460,7 @@ funcao vazio armas(){
             DEFESA += 5
 
             ARMA_STR = "ESCUDO"
+            DINHEIRO-=60
             pare
             
             //machado de guerra
@@ -435,6 +469,21 @@ funcao vazio armas(){
             DANO += 3
 
             ARMA_STR = "MACHADO DE GUERRA"
+            DINHEIRO-=60
+            pare
+
+            //poçao da lebre
+            caso 5:
+            ESQUIVA+=6
+            DINHEIRO-=40
+
+            pare
+
+            
+            //poçao da Saude
+            caso 6:
+            HP+=3
+		  DINHEIRO-=40
             pare
           }
     }
