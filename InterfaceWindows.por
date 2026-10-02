@@ -23,14 +23,6 @@ programa {
             						
             						escreva("Voce foi designado(a) para caçar um vampiro chamado Jailson\n\n")
 
-	/*g.iniciar_modo_grafico(verdadeiro)
-	g.definir_dimensoes_janela(1600, 600)
-	g.definir_titulo_janela("REINO DE AARD")
-	g.definir_cor(g.COR_PRETO)
-	g.limpar()
-	inteiro IMG=g.carregar_imagem("/home/Adamastor2213/PortugolStudio/reinoColorido.png")
-	g.desenhar_imagem(0, 0, IMG)
-	g.renderizar()*/
     //definir os atributos
     escreva_lento("---Escolha sua classe---\n[1] bruxo [2] feiticeiro(a) [3] guerreiro(a)\n",01)
     atributos()
@@ -289,21 +281,6 @@ programa {
             						escreva("===================================\n          ")
             						escreva_lento("FIM DE JOGO\n",90)
             						escreva("===================================\n")
-            						g.iniciar_modo_grafico(verdadeiro)
-									g.definir_dimensoes_janela(400, 200)
-									g.definir_titulo_janela("MAGIA GELO")
-									g.definir_cor(g.COR_PRETO)
-									g.limpar()
-									inteiro IMG=g.carregar_imagem("/home/Adamastor2213/PortugolStudio/rip.jpg")
-									g.desenhar_imagem(0, 0, IMG)
-									g.renderizar()
-									inteiro SOM=s.carregar_som("/home/Adamastor2213/PortugolStudio/ripSom.mp3")
-									s.definir_volume(75)
-									s.reproduzir_som(SOM, falso)
-									u.aguarde(3000)
-									g.liberar_imagem(IMG)
-									s.liberar_som(SOM)
-									g.encerrar_modo_grafico()
             						}
             						//FIM BOSS
 	}
