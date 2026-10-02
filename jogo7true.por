@@ -204,13 +204,78 @@ programa {
 	
              	 	}      
   			}
+  			//LOJA FIM
+
+		//INICIO BOSS
+  		
   		escreva_lento("\nSem dinheiro para compras, voce finalmente entrou no castelo;\n",20)
-		status()        			
-  
+		status()   
+
+		escreva_lento("\nO castelo tinha somente um comodo enorme, nele estava o temido Conde Jailson, sentado em seu trono. Ele olha para voce e diz\n",20)
+		escreva_lento("\n-Conde Jailson: Outro caçador incompetente? So tava afim de relaxar\n",20)
+		
+		escreva_lento("\nVoce dispara em sua direçao e prepara o seu ataque...\n",20)
+			        	
+           vida_inimigo = 50
+           dano_inimigo = 6
+            
+            enquanto(vida_inimigo > 0){
+            	
+              vida_inimigo = ataque(vida_inimigo)	
+
+                se(vida_inimigo == 0){
+                  pare
+                }
+                
+            		se(PARALISADO == falso){
+            			
+              		escreva_lento("O CONDE ATACA COM SUA MAGIA TREVOSA.\n---O QUE FAZER? [1] DEFENDER [2] ESQUIVAR\n",30)
+              		leia(ESCOLHA)
+
+              			enquanto(ESCOLHA > 2 ou ESCOLHA < 1){
+              				
+              			escreva("\nRESPOSTA INCORRETA, TENTE NOVAMENTE\n\n---O QUE FAZER? [1] DEFENDER [2] ESQUIVAR\n",30)
+              			leia(ESCOLHA)}
+
+              				se(ESCOLHA == 1){
+              					
+                			defesa(dano_inimigo)
+
+                			ESCOLHA = 1
+
+                				se(DERROTA == verdadeiro){
+                					pare
+                					}
+                			
+              					}
+              					
+              					se(ESCOLHA == 2){
+                				
+                				esquiva()
+                				
+                				ESCOLHA = 1
+
+                				se(DERROTA == verdadeiro){
+                					pare
+                					}
+                					
+              			}
+            		}
 		}
+		se (DERROTA == falso){
+            				escreva_lento("-CONDE JAILSON: C-COMO ISSO PODE ACONTECER?!\n\n",40)
+            				escreva("===================================\n          ")
+            						escreva_lento("PARABENS, VOCE VENCEU!\n",90)
+            						escreva("===================================")
+            				}
+            					senao{
+            						escreva("===================================\n          ")
+            						escreva_lento("FIM DE JOGO\n",90)
+            						escreva("===================================")
+            						}
 	}
 
-
+  }
 
 
       funcao vazio atributos(){
@@ -295,7 +360,7 @@ programa {
                   		
                   	inteiro elemento, fogo = 0, gelo = 0, chance = 1
 
-                  	escreva("\n---ESCOLHA O ELEMENTO DA MAGIA [1] FOGO [2] GELO---\n")
+                  	escreva_lento("\n---ESCOLHA O ELEMENTO DA MAGIA [1] FOGO [2] GELO---\n",20)
                   	leia(elemento)
 
                   		enquanto(elemento < 1 ou elemento > 2){
@@ -317,13 +382,13 @@ programa {
                    				 
                    					se(chance == 4){
                    						
-                    				fogo = u.sorteia(0,MAGIA)
+                    				fogo = u.sorteia(0,MAGIA*3)
                     				
                    					 }
 
                     				hp_inimigo -= fogo
                     				
-                  					escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E: ",fogo," DE DANO INCENDIARIO.", " SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n")
+                  					escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E: ",fogo," DE DANO INCENDIARIO.", " SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n\n")
                   					
                   			retorne hp_inimigo
                 							
@@ -334,7 +399,7 @@ programa {
                    						se(gelo < 5){
 
                   						//ataque de gelo tem 20% de chance de paralisar
-                  						gelo = u.sorteia(1,5)
+                  						gelo = u.sorteia(MAGIA,15)
                   								  
                   								  }
                   								  
@@ -342,12 +407,12 @@ programa {
                   								
                     						PARALISADO = verdadeiro
                     						
-                    						escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E PARALISOU O INIMIGO. SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n")
+                    						escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E PARALISOU O INIMIGO. SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n\n")
                     		
                     		retorne hp_inimigo
                     
                   									   }
-                    		escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E NAO PARALISOU O INIMIGO. SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n")
+                    		escreva("\nVOCE CAUSOU: ", MAGIA," DE DANO, E NAO PARALISOU O INIMIGO. SEU INIMIGO TEM: ",hp_inimigo," PONTOS DE VIDA.\n\n")
                   									  
                   									  }
                   retorne hp_inimigo
@@ -368,7 +433,7 @@ programa {
               HP -=1
             	se(HP < 1)
             	{
-                  	escreva("\nO ATAQUE FOI FORTE DEMAIS PARA VOCE DEFENDER\n")
+                  	escreva_lento("\nO ATAQUE FOI FORTE DEMAIS PARA VOCE DEFENDER\n",20)
                   	DERROTA = verdadeiro
                 }
               		senao
@@ -401,7 +466,7 @@ funcao vazio esquiva(){
                 		
                   	HP--
                   	se(HP < 1){
-                  		escreva("\nVOCE NAO CONSEGUIU DESVIAR DO GOLPE\n")
+                  		escreva_lento("\nVOCE NAO CONSEGUIU DESVIAR DO GOLPE\n",20)
                   		DERROTA = verdadeiro
                   		}
                   		senao{
