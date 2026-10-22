@@ -281,6 +281,7 @@ programa {
             						escreva("===================================\n          ")
             						escreva_lento("FIM DE JOGO\n",90)
             						escreva("===================================\n")
+            						
             						}
             						//FIM BOSS
 	}
@@ -393,7 +394,7 @@ programa {
 									g.desenhar_imagem(0, 0, IMG)
 									g.renderizar()
 									inteiro SOM=s.carregar_som("C:\\Users\\pedro\\Downloads\\fogoSom.mp3")
-									s.definir_volume(75)
+									s.definir_volume(100)
 									s.reproduzir_som(SOM, falso)
 									u.aguarde(3000)
 									g.liberar_imagem(IMG)
@@ -428,7 +429,7 @@ programa {
 									g.desenhar_imagem(0, 0, IMG)
 									g.renderizar()
 									inteiro SOM=s.carregar_som("C:\\Users\\pedro\\Downloads\\geloSom.mp3")
-									s.definir_volume(75)
+									s.definir_volume(100)
 									s.reproduzir_som(SOM, falso)
 									u.aguarde(3000)
 									g.liberar_imagem(IMG)
@@ -469,6 +470,13 @@ programa {
             {
             	
               HP -=1
+
+              inteiro SOM=s.carregar_som("C:\\Users\\pedro\\Downloads\\classic_hurt.mp3")
+				  s.definir_volume(100)
+				  s.reproduzir_som(SOM, falso)
+				  u.aguarde(3000)
+				  s.liberar_som(SOM)
+				  
             	se(HP < 1)
             	{
                   	escreva_lento("\nO ATAQUE FOI FORTE DEMAIS PARA VOCE DEFENDER\n",20)
@@ -503,6 +511,12 @@ funcao vazio esquiva(){
                 	{
                 		
                   	HP--
+                  	 inteiro SOM=s.carregar_som("C:\\Users\\pedro\\Downloads\\classic_hurt.mp3")
+				  s.definir_volume(100)
+				  s.reproduzir_som(SOM, falso)
+				  u.aguarde(3000)
+				  s.liberar_som(SOM)
+				  
                   	se(HP < 1){
                   		escreva_lento("\nVOCE NAO CONSEGUIU DESVIAR DO GOLPE\n",20)
                   		DERROTA = verdadeiro
