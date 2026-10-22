@@ -469,6 +469,13 @@ programa {
             {
             	
               HP -=1
+
+				 inteiro SOM=s.carregar_som("/home/Davi/PortugolStudio/classic_hurt.mp3")
+				  s.definir_volume(100)
+				  s.reproduzir_som(SOM, falso)
+				  u.aguarde(3000)
+				  s.liberar_som(SOM)
+
             	se(HP < 1)
             	{
                   	escreva_lento("\nO ATAQUE FOI FORTE DEMAIS PARA VOCE DEFENDER\n",20)
@@ -503,6 +510,13 @@ funcao vazio esquiva(){
                 	{
                 		
                   	HP--
+
+					 inteiro SOM=s.carregar_som("/home/Davi/PortugolStudio/classic_hurt.mp3")
+				  s.definir_volume(100)
+				  s.reproduzir_som(SOM, falso)
+				  u.aguarde(3000)
+				  s.liberar_som(SOM)
+
                   	se(HP < 1){
                   		escreva_lento("\nVOCE NAO CONSEGUIU DESVIAR DO GOLPE\n",20)
                   		DERROTA = verdadeiro
